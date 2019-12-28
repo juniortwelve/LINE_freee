@@ -8,6 +8,10 @@ h4 参加者
 
 hr
 
+#messages data-room_id="#{@room.id}"
+  == render @messages
+
+
 - if @messages.present?
   - @messages.each do |m|
     strong #{m.content}
@@ -20,8 +24,12 @@ hr
 - else
     h3.text_content メッセージはまだありません
 
-= form_with model: @message do |f|
-  = f.text_field :content, :placeholder => "メッセージを入力してください", :size => 70
+= label_tag :content, 'Say something'
+= text_field_tag :content, nil, data: { behavior: 'room_speaker' }
+
+/
+ = form_with model: @message do |f|
+  = f.text_field :content, :placeholder => "メッセージを入力してください", :size => 70,
   = f.hidden_field :room_id, :value => @room.id
   br
   = f.submit "投稿する"
