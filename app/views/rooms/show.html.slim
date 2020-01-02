@@ -1,37 +1,29 @@
-h1 DM
-
-h4 参加者
-- @entries.each do |e|
-  h5
-    strong
-      a href="/users/#{e.user.id}" #{e.user.email} さん
-
+= stylesheet_link_tag "rooms/show", :media => "all"
+h2 トーク
+= "#{@user.name}さん"
 hr
 
-#messages data-room_id="#{@room.id}"
-  == render @messages
-
+/ #messages data-room_id="#{@room.id}"
+/   == render @messages
 
 - if @messages.present?
-  - @messages.each do |m|
-    strong #{m.content}
-    br
-    small
-     'by
-     strong
-      a href="/users/#{m.user_id}" #{m.user.email} さん
-    hr
+  #messages
+    - @messages.each do |message|
+      - if message.user == current_user
+        .my_message
+          = image_tag message.user.image.thumb.url, class: 'my_img'
+          / = "#{message.user.name}:"
+          strong.my_content #{message.content}
+      - else
+        .opponent_message
+          = image_tag message.user.image.thumb.url, class: 'opponent_img'
+          / = "#{message.user.name}:"
+          strong.opponent_content #{message.content}
+      br
 - else
     h3.text_content メッセージはまだありません
 
-= label_tag :content, 'Say something'
-= text_field_tag :content, nil, data: { behavior: 'room_speaker' }
-
-/
- = form_with model: @message do |f|
-  = f.text_field :content, :placeholder => "メッセージを入力してください", :size => 70,
+= form_with model: @message, :local => true do |f|
+  = f.text_field :content, :placeholder => "メッセージを入力してください", class: 'text'
   = f.hidden_field :room_id, :value => @room.id
-  br
-  = f.submit "投稿する"
-
-= link_to "ユーザー一覧に戻る", users_path
+  = f.submit "送信する", class: 'submit'

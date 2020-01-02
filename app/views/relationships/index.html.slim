@@ -1,0 +1,24 @@
+= stylesheet_link_tag "relationships/index", :media => "all"
+h2 友だち追加
+
+= form_tag relationships_path, :method => 'get' do
+  = text_field_tag :search, params[:search]
+  = submit_tag "ユーザーを検索", :name => nil
+
+h2 ユーザー一覧
+hr
+- @users.each do |user|
+  div.friend
+    = image_tag user.image.thumb.url
+    = user.name
+    - if @sendingIds.include?(user.id)
+      p 承認待ちです
+    - elsif @receivedIds.include?(user.id)
+      p この人から友だち申請が届いています
+      = link_to '承認', relationship_path(user.id), method: :put, data: {confirm: "#{user.name}さんからの申請を承認しますか？"}, class: 'btn btn-success'
+      = link_to '拒否', relationship_path(user.id), method: :delete, data: {confirm: "#{user.name}さんからの申請を拒否しますか？"}, class: 'btn btn-danger'
+    - elsif @friendIds.include?(user.id)
+      p.already この人とは友だちです
+    - else
+      = link_to '友だち申請を送る', relationships_path(relationship: {from_user_id: current_user.id, to_user_id: user.id}), data: {confirm: "#{user.name}さんに申請を送りますか？"}, method: :post, class: 'btn btn-success btn-friendly'
+  hr

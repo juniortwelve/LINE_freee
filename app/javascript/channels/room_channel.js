@@ -11,11 +11,12 @@ $(function () {
     },
 
     received: function(data) {
+      console.log(data);
       return $('#messages').append(data['message']);
-      // alert data['message']
     },
 
     speak: function(message) {
+      console.log(message);
       return this.perform('speak', {
         message: message
       });

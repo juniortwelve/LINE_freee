@@ -1,15 +1,34 @@
-h1 DMサンプルアプリ
+= stylesheet_link_tag "users/index", :media => "all"
 - if user_signed_in?
-  h2 Hello #{current_user.email}
-  - @users.each do |u|
-    p
-      a href="users/#{u.id}"  #{u.email} さん
+  - if @sendings.empty? and @receiveds.empty? and @friends.empty?
+    h4 「友だち追加」から友だちを追加してみましょう
+  - unless @sendings.empty?
+    h2 承認待ちの申請
+
     hr
+    - @sendings.each do |s|
+      = image_tag s.image.thumb.url
+      = s.name
+      hr
+  - unless @receiveds.empty?
+    h2 あなたに来ている友だち申請
+    hr
+    - @receiveds.each do |r|
+      = image_tag r.image.thumb.url
+      = r.name
+      = link_to '拒否', relationship_path(r.id), method: :delete, data: { confirm: "#{r.name}さんからの申請を拒否しますか？" }, class: 'btn btn-danger'
+      = link_to '承認', relationship_path(r.id), method: :put, data: { confirm: "#{r.name}さんからの申請を承認しますか？" }, class: 'btn btn-success'
+      hr
+  - unless @friends.empty?
+    h2 友だち一覧
+    hr
+    - @friends.each do |f|
+      = image_tag f.image.thumb.url
+      = f.name
+      = link_to 'トークする', rooms_path(id: f.id), :method => :push, class: 'btn btn-success text-right'
+      hr
   = link_to "ログアウト", destroy_user_session_path, :method => :delete
 -else
-  = link_to "ユーザーを登録する", new_user_registration_path
+  = link_to "新規登録", new_user_registration_path
   br
   = link_to "ログインする", new_user_session_path
-
-
-

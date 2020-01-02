@@ -1,0 +1,45 @@
+.opponent_message {
+    display: flex;
+}
+
+.opponent_content {
+    text-align: right;
+    margin: auto 0 auto 10px;
+    background-color: #00B900;
+    padding: 5px 20px;
+    border-radius: 10px;
+}
+
+.my_message {
+    display:flex;
+    flex-direction: row-reverse;
+}
+
+.my_content {
+    text-align: right;
+    margin: auto 10px auto 0;
+    background-color: #00B900;
+    padding: 5px 20px;
+    border-radius: 10px;
+}
+
+form {
+    width: 100%;
+    display:flex;
+    position: fixed;
+    bottom: 0;
+}
+
+.text {
+    flex-basis: auto;
+    width: 90%;
+}
+
+.hidden {
+    flex-basis: 0;
+}
+.submit {
+    margin-right: 0;
+    width: 10%;
+    background-color: #00B900;
+}

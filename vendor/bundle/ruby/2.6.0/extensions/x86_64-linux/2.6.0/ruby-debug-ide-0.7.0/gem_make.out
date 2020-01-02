@@ -1,0 +1,8 @@
+current directory: /mnt/c/Users/junior/RubymineProjects/LINE_task/vendor/bundle/ruby/2.6.0/gems/ruby-debug-ide-0.7.0/ext
+/mnt/c/Users/junior/.rbenv/versions/2.6.5/bin/ruby mkrf_conf.rb
+/mnt/c/Users/junior/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/ext/builder.rb:76: warning: Insecure world writable dir /mnt/c in PATH, mode 040777
+Installing base gem
+Building native extensions. This could take a while...
+
+current directory: /mnt/c/Users/junior/RubymineProjects/LINE_task/vendor/bundle/ruby/2.6.0/gems/ruby-debug-ide-0.7.0/ext
+/mnt/c/Users/junior/.rbenv/versions/2.6.5/bin/ruby -rrubygems /mnt/c/Users/junior/RubymineProjects/LINE_task/vendor/bundle/ruby/2.6.0/gems/rake-13.0.1/exe/rake RUBYARCHDIR\=/mnt/c/Users/junior/RubymineProjects/LINE_task/vendor/bundle/ruby/2.6.0/extensions/x86_64-linux/2.6.0/ruby-debug-ide-0.7.0 RUBYLIBDIR\=/mnt/c/Users/junior/RubymineProjects/LINE_task/vendor/bundle/ruby/2.6.0/extensions/x86_64-linux/2.6.0/ruby-debug-ide-0.7.0

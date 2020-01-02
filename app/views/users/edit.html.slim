@@ -1,0 +1,23 @@
+= render :partial => 'shared/header'
+h1 プロフィール編集
+
+= form_with model: @user do |f|
+  div class = "form-group"
+    = f.label :name, 'ユーザー名'
+    = f.text_field :name, class: 'form-control'
+
+  div class = "form-group"
+    = f.label :email, 'メールアドレス'
+    = f.text_field :email, class: 'form-control'
+
+  div class = "accshow"
+    div class = "form-group"
+      = f.label :password, '新しいパスワード'
+      = f.password_field :password, class: 'form-control'
+
+    div class = "form-group"
+      = f.label :password_confirmation, '新しいパスワードを再入力'
+      = f.password_field :password_confirmation, class: 'from-control'
+
+  div class = "al-c"
+    = f.submit 'プロフィール編集を完了する', class: 'btn btn-primary'
