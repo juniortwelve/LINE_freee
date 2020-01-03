@@ -8,7 +8,7 @@ hr
       = image_tag e.user.image.thumb.url
     div.content
       = link_to room_path(e.room.id)
-        = "#{e.user.name}さん"
+        = "#{e.user.name}"
       - if e.room.messages.present?
         - last_message = e.room.messages.last
         strong.last-message #{last_message.user.name}:#{last_message.content}(#{last_message.updated_at.strftime("%m/%d %H:%M")})

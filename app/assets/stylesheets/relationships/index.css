@@ -5,9 +5,10 @@
 
 .already {
     float: right;
-    margin: auto 0;
+    margin-top: 12px;
 }
 
 .waiting {
     float: right;
+    margin-top: 12px;
 }

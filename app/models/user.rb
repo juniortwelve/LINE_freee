@@ -26,5 +26,10 @@ class User < ApplicationRecord
       User.all
     end
   end
+
+  def remember_me
+    true
+  end
+
   mount_uploader :image, ImageUploader
 end
