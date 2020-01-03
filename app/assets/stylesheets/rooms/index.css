@@ -1,4 +1,8 @@
-.room {
+.content {
     display: flex;
     flex-direction: column;
+}
+
+.room {
+    display: flex;
 }

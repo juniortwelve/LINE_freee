@@ -3,14 +3,15 @@ h2 トーク一覧
 hr
 
 - @anotherEntries.each do |e|
-  = link_to room_path(e.room.id)
-    = image_tag e.user.image.thumb.url
   div.room
-    = link_to room_path(e.room.id)
-      = e.user.name
-    - if e.room.messages.present?
-      - last_message = e.room.messages.last
-      strong.last-message #{last_message.user.name}:#{last_message.content}
-    - else
-      メッセージはまだありません
+    = link_to room_path(e.room.id), class: 'img'
+      = image_tag e.user.image.thumb.url
+    div.content
+      = link_to room_path(e.room.id)
+        = "#{e.user.name}さん"
+      - if e.room.messages.present?
+        - last_message = e.room.messages.last
+        strong.last-message #{last_message.user.name}:#{last_message.content}(#{last_message.updated_at.strftime("%m/%d %H:%M")})
+      - else
+        メッセージはまだありません
   hr

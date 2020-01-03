@@ -1,8 +1,13 @@
 .btn-friendly {
     float: right;
+    margin: auto 0;
 }
 
 .already {
     float: right;
     margin: auto 0;
+}
+
+.waiting {
+    float: right;
 }

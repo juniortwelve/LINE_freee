@@ -1,6 +1,8 @@
 = stylesheet_link_tag "rooms/show", :media => "all"
 h2 トーク
-= "#{@user.name}さん"
+div.opponent-prof
+  = image_tag @user.image.thumb.url
+  = "#{@user.name}"
 hr
 
 / #messages data-room_id="#{@room.id}"
@@ -14,11 +16,13 @@ hr
           = image_tag message.user.image.thumb.url, class: 'my_img'
           / = "#{message.user.name}:"
           strong.my_content #{message.content}
+          p.date #{message.updated_at.strftime("%m/%d %H:%M")}
       - else
         .opponent_message
           = image_tag message.user.image.thumb.url, class: 'opponent_img'
           / = "#{message.user.name}:"
           strong.opponent_content #{message.content}
+          p.date #{message.updated_at.strftime("%m/%d %H:%M")}
       br
 - else
     h3.text_content メッセージはまだありません
@@ -26,4 +30,4 @@ hr
 = form_with model: @message, :local => true do |f|
   = f.text_field :content, :placeholder => "メッセージを入力してください", class: 'text'
   = f.hidden_field :room_id, :value => @room.id
-  = f.submit "送信する", class: 'submit'
+  = f.submit "送信する", class: 'submit, btn btn-primary'
