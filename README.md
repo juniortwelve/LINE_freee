@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+このプロジェクトをダウンロードして実行するためには、以下のコマンドを実行してください
 
-Things you may want to cover:
+* git clone https://github.com/juniortwelve/LINE_freee.git
 
-* Ruby version
+* bundle install
 
-* System dependencies
+* rails db:migrate
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* rails s
