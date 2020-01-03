@@ -9,3 +9,5 @@
 * rails db:migrate
 
 * rails s
+
+* 自身のブラウザにて、localhost:3000に接続
