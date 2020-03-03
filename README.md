@@ -2,15 +2,12 @@
 
 このプロジェクトをダウンロードして実行するためには、以下のコマンドを実行してください
 
-* git clone https://github.com/juniortwelve/LINE_freee.git
+    $ git clone https://github.com/juniortwelve/LINE_freee.git
+    $ bundle install
+    $ rails db:migrate
+    $ rails s
 
-* bundle install
-
-* rails db:migrate
-
-* rails s
-
-* 自身のブラウザにて、localhost:3000に接続
+その後、自身のブラウザにてlocalhost:3000に接続すると、アプリを開くことができます。
 
 また、アプリ自身について説明させて頂きます。
 
